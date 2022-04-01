@@ -267,6 +267,8 @@ def run(
             combination,
             title="pvt_" + str(batch),
         )
+        if not os.path.exists(os.path.join("env", "Pos_and_angles")):
+            os.mkdir(os.path.join("env", "Pos_and_angles"))        
         if not os.path.exists(os.path.join("env", "Pos_and_angles", str(batch))):
             os.mkdir(os.path.join("env", "Pos_and_angles", str(batch)))
         write_pos_and_angles_to_txt(environment, "Pos_and_angles/" + str(batch))
@@ -369,6 +371,8 @@ def save_distances(result_vec, combination, environment):
     """
     Saves distances results in a txt in the current combination folder
     """
+    if not os.path.exists(os.path.join("env", "Distances")):
+        os.mkdir(os.path.join("env", "Distances"))    
     if not os.path.exists(os.path.join("env", "Distances", str(combination))):
         os.mkdir(os.path.join("env", "Distances", str(combination)))
     write_to_txt_general(result_vec, "Distances/" + str(combination) + "/distances.txt")
