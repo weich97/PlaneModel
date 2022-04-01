@@ -89,6 +89,9 @@ def gridsearch_tensorforce(
     # Compute the different parameters combinations
     param_combinations = list(itertools.product(*param_grid_list.values()))
     for i, params in enumerate(param_combinations, 1):
+        #add the directory check to make sure Graphs exists
+        if not os.path.exists(os.path.join("env", "Graphs")):
+            os.mkdir(os.path.join("env", "Graphs"))
         if not os.path.exists(os.path.join("env", "Graphs", str(i))):
             os.mkdir(os.path.join("env", "Graphs", str(i)))
         # fill param dict with params
